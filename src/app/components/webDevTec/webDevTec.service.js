@@ -6,7 +6,9 @@
       .service('webDevTec', webDevTec);
 
   /** @ngInject */
-  function webDevTec() {
+  function webDevTec($log) {
+   // AWS.config.region = 'us-east-1'; // Region
+
     var data = [
 
       {
@@ -32,10 +34,20 @@
         "rank": 3
       }
     ];
+    AWS.config.region = 'us-east-1'; // Region
+    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+      IdentityPoolId: 'us-east-1:14f52e55-aad9-4992-b555-72185761caaf'
+    });
+
+    $log.info(AWS.config.credentials);
 
     this.getTec = getTec;
 
     function getTec() {
+      var s3 = new AWS.S3({apiVersion: '2006-03-01', sslEnabled: false});
+      var object = s3.getObject({Bucket:'mvarc.info.data',Key:'data.json'});
+      $log.info(object);
+      // return object;
       return data;
     }
   }
