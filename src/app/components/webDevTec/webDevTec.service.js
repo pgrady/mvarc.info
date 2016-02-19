@@ -30,7 +30,7 @@
         "url": "http://mvarc.org",
         "url_label": "Club Web Site",
         "description": "In and around George Washington's Mount Vernon Estate",
-        "logo": "node-sass.png",
+        "logo": "radio-icon.png",
         "rank": 3
       }
     ];
@@ -45,9 +45,14 @@
 
     function getTec() {
       var s3 = new AWS.S3({apiVersion: '2006-03-01', sslEnabled: false});
-      var object = s3.getObject({Bucket:'mvarc.info.data',Key:'data.json'});
-      $log.info(object);
-      // return object;
+      s3.getObject({Bucket:'mvarc.info.data',Key:'data.json'}, function(err, data){
+        if (err) {
+          $log.error(err, err.stack);
+        } else {
+          $log.info(data.Body.toString());
+        }
+      });
+
       return data;
     }
   }
