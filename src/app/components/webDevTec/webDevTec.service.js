@@ -39,8 +39,6 @@
       IdentityPoolId: 'us-east-1:14f52e55-aad9-4992-b555-72185761caaf'
     });
 
-    $log.info(AWS.config.credentials);
-
     this.getTec = getTec;
 
     function getTec() {
