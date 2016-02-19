@@ -4,11 +4,24 @@
     <acme-navbar creation-date="main.creationDate"></acme-navbar>
   </div>
 
-  <div>
-    <a class="twitter-timeline" href="https://twitter.com/MtVernonVE" data-widget-id="700697131040927746">Tweets by @MtVernonVE</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </div>
+  <div class="jumbotron text-center">
+    <h1>Mt. Vernon Amateur Radio Club Volunteer Examiners</h1>
+      <p class="lead">
+        We administer amateur radio examinations monthly near downtown Alexandria, Virginia.
+      </p>
+      <div align="left">Bring to the exam:<br/>
+        * Picture ID issued by a Government agency<br/>* FRN if you're currently licensed or if you've registered with the
+    FCC (Social Security Number must be provided if you have not received an FRN)
+      </div>
+    <p class="lead">
+      Updates:
+    </p>
+      <div style="width: 520px;height: 250px;">
 
+        <a class="twitter-timeline" href="https://twitter.com/MtVernonVE" data-widget-id="700705145361858562">Tweets by @MtVernonVE</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </div>
+  </div>
   <div class="row">
     <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
       <div class="thumbnail">
@@ -21,5 +34,6 @@
       </div>
     </div>
   </div>
+
 
 </div>
