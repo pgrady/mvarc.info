@@ -14,6 +14,12 @@
     vm.creationDate = 1455822847349;
     vm.showToastr = showToastr;
 
+    vm.mvarc = null;
+
+    webDevTec.loadMVARC().then(function(data) {
+      mv.mvarc = data;
+    });
+
     activate();
 
     function activate() {

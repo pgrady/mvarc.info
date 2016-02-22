@@ -6,8 +6,31 @@
       .service('webDevTec', webDevTec);
 
   /** @ngInject */
-  function webDevTec($log) {
+  function webDevTec($log, $rootScope, $q) {
    // AWS.config.region = 'us-east-1'; // Region
+
+    var s3 = new AWS.S3({apiVersion: '2006-03-01', sslEnabled: false});
+
+    function loadMVARC() {
+      return new $q(function(resolve, reject) {
+        s3.getObject({Bucket:'mvarc.info.data',Key:'data.json'}, function(err, result){
+          if (err) {
+            $log.error(err, err.stack);
+            reject(err);
+          } else {
+            $log.info(result.Body.toString());
+            resolve(result.Body.toString());
+          }
+        });
+
+      });
+
+    }
+
+
+    return {
+      loadMVARC: loadMVARC
+    };
 
     var data = [
 
