@@ -1,12 +1,8 @@
-(function() {
-  'use strict';
+'use strict';
 
-  angular
-      .module('mvarcInfo')
-      .service('webDevTec', webDevTec);
-
-  /** @ngInject */
-  function webDevTec($log, $q) {
+angular
+  .module('mvarcInfo')
+  .factory('mvarcLoader', function ($log, $q) {
 
     AWS.config.region = 'us-east-1'; // Region
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
@@ -16,8 +12,8 @@
     var s3 = new AWS.S3({apiVersion: '2006-03-01', sslEnabled: false});
 
     function loadMVARC() {
-      return new $q(function(resolve, reject) {
-        s3.getObject({Bucket:'mvarc.info.data',Key:'data.json'}, function(err, result){
+      return new $q(function (resolve, reject) {
+        s3.getObject({Bucket: 'mvarc.info.data', Key: 'data.json'}, function (err, result) {
           if (err) {
             $log.error(err, err.stack);
             reject(err);
@@ -35,6 +31,23 @@
       loadMVARC: loadMVARC
     };
 
-  }
+  });
 
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

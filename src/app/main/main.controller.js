@@ -1,12 +1,8 @@
-(function() {
-  'use strict';
+'use strict';
 
-  angular
-    .module('mvarcInfo')
-    .controller('MainController', MainController);
-
-  /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
+angular
+  .module('mvarcInfo')
+  .controller('MainController', function ($timeout, mvarcLoader, toastr) {
     var vm = this;
 
     vm.awesomeThings = [];
@@ -16,15 +12,16 @@
 
     vm.mvarc = null;
 
-    webDevTec.loadMVARC().then(function(data) {
+
+    mvarcLoader.loadMVARC().then(function (data) {
+      console.log('I got back real data!!!');
       vm.mvarc = data;
     });
 
     activate();
 
     function activate() {
-      webDevTec.loadMVARC();
-      $timeout(function() {
+      $timeout(function () {
         vm.classAnimation = 'rubberBand';
       }, 4000);
     }
@@ -34,12 +31,13 @@
       vm.classAnimation = '';
     }
 
-  //  function getWebDevTec() {
-  //    vm.awesomeThings = webDevTec.getTec();
+      function getWebDevTec() {
+        vm.awesomeThings = vm.mvarc;
 
 //      angular.forEach(vm.awesomeThings, function(awesomeThing) {
 //        awesomeThing.rank = Math.random();
-  //      });
-//    }
-  }
-})();
+//          });
+    }
+  });
+
+
