@@ -14,8 +14,8 @@ angular
 
 
     mvarcLoader.loadMVARC().then(function (data) {
-      console.log('I got back real data!!!');
-      vm.mvarc = data;
+//      $log.info('I got back real data!!!');
+      vm.awesomeThings = JSON.parse(data);
     });
 
     activate();
@@ -31,13 +31,13 @@ angular
       vm.classAnimation = '';
     }
 
-      function getWebDevTec() {
-        vm.awesomeThings = vm.mvarc;
+  //    function getWebDevTec() {
+  //      vm.awesomeThings = vm.mvarc;
 
 //      angular.forEach(vm.awesomeThings, function(awesomeThing) {
 //        awesomeThing.rank = Math.random();
 //          });
-    }
+  // }
   });
 
 
