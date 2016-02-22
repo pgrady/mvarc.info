@@ -15,7 +15,7 @@ angular
 
     mvarcLoader.loadMVARC().then(function (data) {
 //      $log.info('I got back real data!!!');
-      vm.awesomeThings = JSON.parse(data);
+      vm.awesomeThings = angular.fromJson(data);
     });
 
     activate();
