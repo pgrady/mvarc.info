@@ -18,7 +18,7 @@ angular
             $log.error(err, err.stack);
             reject(err);
           } else {
-            $log.info(result.Body.toString());
+//            $log.info(result.Body.toString());
             resolve(result.Body.toString());
           }
         });
