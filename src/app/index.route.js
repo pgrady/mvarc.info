@@ -12,8 +12,8 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'app/main/about.html',
+      .when('/dates', {
+        templateUrl: 'app/main/dates.html',
         controller: 'MainController',
         controllerAs: 'main'
       })
